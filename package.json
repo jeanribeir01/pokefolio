@@ -11,7 +11,8 @@
     "validate": "tsx scripts/validate-data.ts",
     "generate:og": "tsx scripts/generate-og-image.ts",
     "fetch:github": "tsx scripts/fetch-github-data.ts",
-    "prebuild": "npm run generate:og"
+    "update:config": "tsx scripts/update-repo-config.ts",
+    "prebuild": "npm run update:config && npm run generate:og"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

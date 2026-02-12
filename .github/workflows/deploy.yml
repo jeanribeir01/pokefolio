@@ -30,6 +30,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Update repository configuration
+        run: npm run update:config
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
       - name: Validate data.json
         run: npm run validate
 

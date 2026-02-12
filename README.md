@@ -66,6 +66,8 @@ https://<seu-usuario>.github.io/<nome-do-repo>/
 
 **Exemplo**: `https://seu-usuario.github.io/portfolio/`
 
+> ⚙️ **Detecção Automática do Nome do Repositório**: O sistema detecta automaticamente o nome do seu repositório durante o deploy! Se você renomear seu repositório, o próximo deploy atualizará tudo automaticamente. Não é necessário editar manualmente nenhum arquivo de configuração.
+
 ---
 
 ## 📝 Editando `data.json`
@@ -157,13 +159,13 @@ Adicione imagens dos seus projetos em `public/images/`:
   "projects": [
     {
       "name": "Meu Projeto",
-      "image": "/viu/images/meu-projeto.png"
+      "image": "/NOME-DO-SEU-REPO/images/meu-projeto.png"
     }
   ]
 }
 ```
 
-> ⚠️ **Atenção**: Use o prefixo `/viu/` (ou o nome do seu repo) para as imagens funcionarem corretamente.
+> ⚠️ **Atenção**: Substitua `NOME-DO-SEU-REPO` pelo nome do seu repositório (ex: `portfolio`, `meu-site`, etc.). O sistema detecta automaticamente o nome durante o build, mas você precisa usar o prefixo correto nas URLs de imagem no `data.json`.
 
 ---
 
@@ -245,12 +247,13 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 ### Scripts Disponíveis
 
 ```bash
-npm run dev          # Inicia servidor de desenvolvimento
-npm run build        # Gera build de produção
-npm run start        # Inicia servidor de produção
-npm run validate     # Valida data.json
-npm run fetch:github # Importa repositórios do GitHub
-npm run generate:og  # Gera Open Graph image
+npm run dev           # Inicia servidor de desenvolvimento
+npm run build         # Gera build de produção
+npm run start         # Inicia servidor de produção
+npm run validate      # Valida data.json
+npm run update:config # Atualiza nome do repo automaticamente
+npm run fetch:github  # Importa repositórios do GitHub
+npm run generate:og   # Gera Open Graph image
 ```
 
 ---## 📁 Estrutura do Projeto
@@ -271,11 +274,14 @@ viu/
 ├── scripts/
 │   ├── validate-data.ts  # Validador de data.json
 │   ├── fetch-github-data.ts  # Auto-import GitHub
+│   ├── update-repo-config.ts # Detecta nome do repo automaticamente
 │   └── generate-og-image.ts  # Gerador de OG image
 └── .github/
     └── workflows/
         └── deploy.yml    # CI/CD para GitHub Pages
 ```
+
+> ⚙️ **Detecção Automática**: O script `update-repo-config.ts` detecta automaticamente o nome do seu repositório via GitHub Actions ou git remote, atualizando o `basePath` do Next.js. Isso significa que você pode renomear seu repositório a qualquer momento sem editar código!
 
 ---
 
@@ -318,23 +324,27 @@ Se houver erros, corrija-os no `data.json`.
 
 ### 🖼️ Imagens não aparecem
 
-**Verifique o caminho:**
+**Verifique o caminho no `data.json`:**
 
-- ✅ Correto: `/viu/images/projeto.png`
+- ✅ Correto: `/seu-repo/images/projeto.png`
 - ❌ Errado: `/images/projeto.png`
 - ❌ Errado: `images/projeto.png`
 
-> **Nota**: `viu` deve ser o nome do seu repositório.
+> **Nota**: Substitua `seu-repo` pelo nome real do seu repositório GitHub. O sistema detecta automaticamente o nome durante o build.
 
 ### 🌐 Página 404
 
-**Verifique `next.config.ts`:**
+**O sistema detecta automaticamente o nome do repositório!** Se você renomeou seu repositório e está tendo problemas:
 
-```typescript
-const basePath = process.env.NODE_ENV === "production" ? "/viu" : "";
+1. Faça um novo commit (pode ser vazio): `git commit --allow-empty -m "Update config"`
+2. Faça push: `git push`
+3. O GitHub Actions irá detectar o novo nome automaticamente
+
+Se o problema persistir, execute localmente:
+
+```bash
+npm run update:config
 ```
-
-Substitua `/viu` pelo nome do seu repositório.
 
 ### 🔄 GitHub Auto-Import não funciona
 
