@@ -1,0 +1,157 @@
+{
+  "$schema": "./schema.json",
+  "basics": {
+    "name": "Seu Nome Completo",
+    "label": "Desenvolvedor Full Stack",
+    "image": "https://github.com/seu-usuario.png",
+    "email": "seuemail@exemplo.com",
+    "phone": "+55 11 99999-9999",
+    "url": "https://seusite.com",
+    "summary": "Desenvolvedor apaixonado por criar soluções web modernas e eficientes. Especializado em React, Next.js e Node.js. Sempre buscando aprender novas tecnologias e compartilhar conhecimento com a comunidade.",
+    "location": {
+      "city": "São Paulo",
+      "region": "SP",
+      "countryCode": "BR"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "seu-usuario",
+        "url": "https://github.com/seu-usuario"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "seu-usuario",
+        "url": "https://linkedin.com/in/seu-usuario"
+      },
+      {
+        "network": "Twitter",
+        "username": "seu-usuario",
+        "url": "https://twitter.com/seu-usuario"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "HTML5",
+        "CSS3"
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis"]
+    },
+    {
+      "category": "DevOps",
+      "items": ["Docker", "GitHub Actions", "AWS", "Linux", "Nginx"]
+    },
+    {
+      "category": "Tools",
+      "items": ["Git", "VS Code", "Figma", "Postman"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "azure-stream-analytics",
+      "description": "Azure Stream Analytics",
+      "url": "https://github.com/seu-usuario/azure-stream-analytics",
+      "tags": ["C#"],
+      "highlights": ["⭐ 0 estrelas"]
+    },
+    {
+      "name": "SignalR",
+      "description": "Incredibly simple real-time web for .NET",
+      "url": "https://github.com/seu-usuario/SignalR",
+      "tags": ["C#"],
+      "highlights": ["⭐ 0 estrelas"],
+      "image": "http://signalr.net"
+    },
+    {
+      "name": "MassTransit-AzureServiceBus",
+      "description": "Azure Service Bus Transport for MassTransit",
+      "url": "https://github.com/seu-usuario/MassTransit-AzureServiceBus",
+      "tags": ["C#"],
+      "highlights": ["⭐ 0 estrelas"]
+    },
+    {
+      "name": "MassTransit",
+      "description": "Distributed Application Framework for .NET supporting MSMQ and RabbitMQ",
+      "url": "https://github.com/seu-usuario/MassTransit",
+      "tags": ["C#"],
+      "highlights": ["⭐ 0 estrelas"],
+      "image": "http://masstransit-project.com/"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade de São Paulo",
+      "area": "Ciência da Computação",
+      "studyType": "Bacharelado",
+      "startDate": "2022-02",
+      "endDate": "2026-12"
+    },
+    {
+      "institution": "Rocketseat",
+      "area": "Desenvolvimento Web Full Stack",
+      "studyType": "Bootcamp",
+      "startDate": "2023-01",
+      "endDate": "2023-06"
+    }
+  ],
+  "work": [
+    {
+      "name": "Tech Solutions Inc",
+      "position": "Desenvolvedor Full Stack",
+      "url": "https://techsolutions.com",
+      "startDate": "2024-06",
+      "endDate": "",
+      "summary": "Desenvolvimento de aplicações web escaláveis usando React e Node.js. Colaboração em equipe ágil com sprints quinzenais.",
+      "highlights": [
+        "Implementou sistema de notificações em tempo real",
+        "Reduziu tempo de carregamento em 40% com otimizações",
+        "Mentoria de 2 desenvolvedores júnior"
+      ]
+    },
+    {
+      "name": "Startup XYZ",
+      "position": "Estagiário de Desenvolvimento",
+      "url": "https://startupxyz.com",
+      "startDate": "2023-06",
+      "endDate": "2024-05",
+      "summary": "Desenvolvimento de features frontend e integração com APIs. Participação ativa em code reviews e planejamento técnico.",
+      "highlights": [
+        "Desenvolveu 15+ componentes reutilizáveis",
+        "Implementou sistema de autenticação OAuth2",
+        "Automatizou deploy com GitHub Actions"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Português",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Inglês",
+      "fluency": "Avançado"
+    },
+    {
+      "language": "Espanhol",
+      "fluency": "Intermediário"
+    }
+  ],
+  "config": {
+    "theme": "default",
+    "accentColor": "#6366f1",
+    "darkMode": true,
+    "showFooterCredit": true,
+    "githubAutoFetch": false,
+    "analyticsId": ""
+  }
+}

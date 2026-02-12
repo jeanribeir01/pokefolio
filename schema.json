@@ -1,0 +1,293 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["basics"],
+  "properties": {
+    "basics": {
+      "type": "object",
+      "required": ["name", "label", "summary"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Seu nome completo",
+          "minLength": 2
+        },
+        "label": {
+          "type": "string",
+          "description": "Seu título profissional (ex: Desenvolvedor Full Stack)",
+          "minLength": 2
+        },
+        "image": {
+          "type": "string",
+          "description": "URL da sua foto de perfil (ex: https://github.com/seu-usuario.png)",
+          "format": "uri"
+        },
+        "email": {
+          "type": "string",
+          "description": "Seu email de contato",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Seu telefone com DDD"
+        },
+        "url": {
+          "type": "string",
+          "description": "Seu site ou blog pessoal",
+          "format": "uri"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Uma breve descrição sobre você (2-3 frases)",
+          "minLength": 10
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string",
+              "description": "Cidade"
+            },
+            "region": {
+              "type": "string",
+              "description": "Estado (ex: SP)"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "Código do país (ex: BR)",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          }
+        },
+        "profiles": {
+          "type": "array",
+          "description": "Suas redes sociais",
+          "items": {
+            "type": "object",
+            "required": ["network", "username", "url"],
+            "properties": {
+              "network": {
+                "type": "string",
+                "description": "Nome da rede social",
+                "enum": [
+                  "GitHub",
+                  "LinkedIn",
+                  "Twitter",
+                  "Instagram",
+                  "Facebook",
+                  "YouTube",
+                  "TikTok"
+                ]
+              },
+              "username": {
+                "type": "string",
+                "description": "Seu usuário nesta rede"
+              },
+              "url": {
+                "type": "string",
+                "description": "Link do seu perfil",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "description": "Suas habilidades técnicas agrupadas por categoria",
+      "items": {
+        "type": "object",
+        "required": ["category", "items"],
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Nome da categoria (ex: Frontend, Backend)"
+          },
+          "items": {
+            "type": "array",
+            "description": "Lista de tecnologias desta categoria",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "description": "Seus projetos principais",
+      "items": {
+        "type": "object",
+        "required": ["name", "description"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do projeto"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição do que o projeto faz",
+            "minLength": 10
+          },
+          "highlights": {
+            "type": "array",
+            "description": "Destaques do projeto (tecnologias, resultados)",
+            "items": {
+              "type": "string"
+            }
+          },
+          "url": {
+            "type": "string",
+            "description": "Link do projeto (GitHub, demo, etc)",
+            "format": "uri"
+          },
+          "image": {
+            "type": "string",
+            "description": "Imagem de preview do projeto"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags/tecnologias usadas",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "education": {
+      "type": "array",
+      "description": "Sua formação acadêmica",
+      "items": {
+        "type": "object",
+        "required": ["institution", "area", "studyType", "startDate"],
+        "properties": {
+          "institution": {
+            "type": "string",
+            "description": "Nome da instituição de ensino"
+          },
+          "area": {
+            "type": "string",
+            "description": "Área de estudo/curso"
+          },
+          "studyType": {
+            "type": "string",
+            "description": "Tipo (Bacharelado, Tecnólogo, Bootcamp, etc)"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Data de início (YYYY-MM)",
+            "pattern": "^[0-9]{4}-[0-9]{2}$"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "Data de conclusão (YYYY-MM) ou vazio se em andamento",
+            "pattern": "^([0-9]{4}-[0-9]{2})?$"
+          }
+        }
+      }
+    },
+    "work": {
+      "type": "array",
+      "description": "Sua experiência profissional",
+      "items": {
+        "type": "object",
+        "required": ["name", "position", "startDate"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome da empresa"
+          },
+          "position": {
+            "type": "string",
+            "description": "Seu cargo"
+          },
+          "url": {
+            "type": "string",
+            "description": "Site da empresa",
+            "format": "uri"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Data de início (YYYY-MM)",
+            "pattern": "^[0-9]{4}-[0-9]{2}$"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "Data de saída (YYYY-MM) ou vazio se atual",
+            "pattern": "^([0-9]{4}-[0-9]{2})?$"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Descrição das suas atividades"
+          },
+          "highlights": {
+            "type": "array",
+            "description": "Principais conquistas neste cargo",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "description": "Idiomas que você fala",
+      "items": {
+        "type": "object",
+        "required": ["language", "fluency"],
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Nome do idioma"
+          },
+          "fluency": {
+            "type": "string",
+            "description": "Nível de fluência",
+            "enum": ["Nativo", "Avançado", "Intermediário", "Básico"]
+          }
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "description": "Configurações de personalização do portfolio",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "description": "Tema visual",
+          "default": "default"
+        },
+        "accentColor": {
+          "type": "string",
+          "description": "Cor de destaque (hex)",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "default": "#6366f1"
+        },
+        "darkMode": {
+          "type": "boolean",
+          "description": "Ativar dark mode por padrão",
+          "default": true
+        },
+        "showFooterCredit": {
+          "type": "boolean",
+          "description": "Mostrar 'Feito com Viu' no rodapé",
+          "default": true
+        },
+        "githubAutoFetch": {
+          "type": "boolean",
+          "description": "Buscar automaticamente seus repositórios do GitHub",
+          "default": false
+        },
+        "analyticsId": {
+          "type": "string",
+          "description": "ID do Google Analytics (opcional)"
+        }
+      }
+    }
+  }
+}
