@@ -25,7 +25,8 @@
 - **🚀 Deploy automático** - GitHub Actions → GitHub Pages (grátis)
 - **⚡ Performance** - Site estático otimizado (Next.js 15)
 - **🎯 SEO otimizado** - Meta tags, Open Graph, Twitter Cards
-- **🔄 GitHub Auto-Import** - Importe seus repos automaticamente
+- **� Foto de perfil automática** - Detecta sua foto do GitHub automaticamente
+- **🔄 GitHub Auto-Import** - Importe repos e avatar automaticamente
 - **🎨 OG Image** - Gere preview social automaticamente
 - **♿ Acessível** - WCAG compliant, navegação por teclado
 - **🌐 Validação automática** - Nunca faça deploy com dados inválidos
@@ -102,6 +103,10 @@ O arquivo `data.json` é a **única coisa** que você precisa editar. Ele conté
 }
 ```
 
+> 📸 **Foto de Perfil Automática**: Deixe o campo `image` como `"https://github.com/seu-usuario.png"` e ele será substituído automaticamente pela sua foto real do GitHub baseado no `username` configurado em `profiles`! Não precisa editar manualmente.
+
+---
+
 ### Seções Disponíveis
 
 | Seção       | Descrição                                      | Obrigatória |
@@ -171,7 +176,7 @@ Adicione imagens dos seus projetos em `public/images/`:
 
 ## 🔄 GitHub Auto-Import
 
-Importe automaticamente seus repositórios do GitHub:
+Importe automaticamente seus repositórios **e foto de perfil** do GitHub:
 
 ### 1. Ative o Auto-Import
 
@@ -190,7 +195,13 @@ npm install
 npm run fetch:github
 ```
 
-Os 6 repositórios com mais estrelas serão adicionados automaticamente à seção `projects`.
+**O que é importado:**
+
+- ✅ Foto de perfil do GitHub
+- ✅ Os 6 repositórios com mais estrelas
+- ✅ Descrições, linguagens e contagem de estrelas
+
+> 💡 **Automático no Build**: O auto-import roda automaticamente antes de cada build em produção!
 
 ### 3. Rate Limits (Opcional)
 

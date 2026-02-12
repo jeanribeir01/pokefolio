@@ -19,7 +19,7 @@
         },
         "image": {
           "type": "string",
-          "description": "URL da sua foto de perfil (ex: https://github.com/seu-usuario.png)",
+          "description": "URL da sua foto de perfil. Use https://github.com/seu-usuario.png e será detectado automaticamente baseado no seu username do GitHub!",
           "format": "uri"
         },
         "email": {
