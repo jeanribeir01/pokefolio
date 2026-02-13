@@ -30,8 +30,11 @@ const socialIcons: Record<
 
 export function Hero({ data }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center py-20">
-      <div className="container px-4 md:px-6">
+    <section
+      id="hero"
+      className="relative min-h-[90vh] flex items-center justify-center py-20"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Avatar */}
           <motion.div

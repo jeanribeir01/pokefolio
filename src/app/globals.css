@@ -49,6 +49,19 @@
   border-color: hsl(var(--border));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+/* Ensure sidebar nav buttons are clickable */
+nav button {
+  cursor: pointer;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));

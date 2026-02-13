@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
+import { ExternalLink, Github, Star, GitFork } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -24,7 +22,7 @@ export function Projects({ projects }: ProjectsProps) {
 
   return (
     <section id="projects" className="py-20">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,67 +48,74 @@ export function Projects({ projects }: ProjectsProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full flex flex-col overflow-hidden group">
-                  {project.image && (
-                    <div className="relative w-full h-48 bg-muted overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.name}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
+                <Card className="h-full flex flex-col group border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        {project.url?.includes("github.com") ? (
+                          <Github className="w-5 h-5 text-muted-foreground" />
+                        ) : (
+                          <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                        )}
+                        <CardTitle className="text-lg">
+                          {project.url ? (
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-primary transition-colors hover:underline"
+                            >
+                              {project.name}
+                            </a>
+                          ) : (
+                            project.name
+                          )}
+                        </CardTitle>
+                      </div>
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
-                  )}
-
-                  <CardHeader>
-                    <CardTitle>{project.name}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription className="mt-2 line-clamp-2">
+                      {project.description}
+                    </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="flex-1 space-y-4">
+                  <CardContent className="flex-1 space-y-4 pt-0">
                     {project.highlights && project.highlights.length > 0 && (
-                      <ul className="space-y-1 text-sm text-muted-foreground">
+                      <ul className="space-y-1.5 text-sm text-muted-foreground">
                         {project.highlights.map((highlight, i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
+                            <span className="text-primary mt-0.5 text-xs">
+                              ▸
+                            </span>
                             <span>{highlight}</span>
                           </li>
                         ))}
                       </ul>
                     )}
+                  </CardContent>
 
-                    {project.tags && project.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
+                  {project.tags && project.tags.length > 0 && (
+                    <CardFooter className="pt-0 pb-4">
+                      <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((tag, i) => (
-                          <Badge key={i} variant="outline">
+                          <Badge
+                            key={i}
+                            variant="secondary"
+                            className="text-xs font-normal px-2 py-0.5"
+                          >
                             {tag}
                           </Badge>
                         ))}
                       </div>
-                    )}
-                  </CardContent>
-
-                  {project.url && (
-                    <CardFooter>
-                      <Button asChild variant="outline" className="w-full">
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {project.url.includes("github.com") ? (
-                            <>
-                              <Github className="w-4 h-4" />
-                              Ver no GitHub
-                            </>
-                          ) : (
-                            <>
-                              <ExternalLink className="w-4 h-4" />
-                              Ver Projeto
-                            </>
-                          )}
-                        </a>
-                      </Button>
                     </CardFooter>
                   )}
                 </Card>

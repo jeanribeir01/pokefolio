@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { data } from "@/lib/data";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -47,11 +46,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-
-          {/* Botão flutuante de troca de tema */}
-          <div className="fixed bottom-6 right-6 z-50">
-            <ThemeToggle />
-          </div>
         </ThemeProvider>
       </body>
     </html>

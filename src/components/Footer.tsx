@@ -13,7 +13,7 @@ export function Footer({ config }: FooterProps) {
 
   return (
     <footer className="border-t bg-background">
-      <div className="container px-4 md:px-6 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground text-center md:text-left">
             © {currentYear} Todos os direitos reservados.

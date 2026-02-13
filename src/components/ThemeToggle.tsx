@@ -16,23 +16,29 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" disabled>
-        <Sun className="h-5 w-5" />
+      <Button
+        variant="outline"
+        size="icon"
+        disabled
+        className="rounded-full border-2 border-border"
+      >
+        <Sun className="h-[1.1rem] w-[1.1rem]" />
       </Button>
     );
   }
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Alternar tema"
+      className="rounded-full border-2 border-border hover:border-primary hover:bg-accent transition-all duration-200"
     >
       {theme === "dark" ? (
-        <Sun className="h-5 w-5 transition-all" />
+        <Sun className="h-[1.1rem] w-[1.1rem] transition-all text-yellow-400" />
       ) : (
-        <Moon className="h-5 w-5 transition-all" />
+        <Moon className="h-[1.1rem] w-[1.1rem] transition-all text-slate-700" />
       )}
     </Button>
   );
