@@ -1,13 +1,11 @@
 export interface Profile {
   network: string;
-  username: string;
   url: string;
 }
 
 export interface Location {
   city: string;
   region: string;
-  countryCode: string;
 }
 
 export interface Basics {
@@ -16,24 +14,17 @@ export interface Basics {
   image?: string;
   email?: string;
   phone?: string;
-  url?: string;
   summary: string;
+  heroGifUrl?: string;
   location?: Location;
   profiles?: Profile[];
 }
 
-export interface Skill {
-  category: string;
-  items: string[];
-}
-
 export interface Project {
   name: string;
-  description: string;
+  description?: string;
   highlights?: string[];
   url?: string;
-  image?: string;
-  tags?: string[];
 }
 
 export interface Education {
@@ -54,26 +45,29 @@ export interface Work {
   highlights?: string[];
 }
 
-export interface Language {
-  language: string;
-  fluency: string;
+export type StarterPokemon = "squirtle" | "bulbasaur" | "charmander";
+
+export interface PokemonThemeTokens {
+  primary: string;
+  secondary: string;
+  accent: string;
+  bg: string;
+  frame: string;
+  text: string;
+  sprite: string;
+  speciesLabel: string;
 }
 
 export interface Config {
-  theme?: string;
-  accentColor?: string;
-  darkMode?: boolean;
+  starterPokemon?: StarterPokemon;
   showFooterCredit?: boolean;
-  githubAutoFetch?: boolean;
-  analyticsId?: string;
 }
 
 export interface PortfolioData {
   basics: Basics;
-  skills?: Skill[];
+  skills?: string[];
   projects?: Project[];
   education?: Education[];
   work?: Work[];
-  languages?: Language[];
   config?: Config;
 }

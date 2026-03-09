@@ -1,4 +1,4 @@
-name: Deploy Viu Portfolio
+name: Deploy Pokefolio Portfolio
 
 on:
   push:

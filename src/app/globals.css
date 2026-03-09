@@ -1,48 +1,61 @@
+@import "nes.css/css/nes.min.css";
 @import "tailwindcss";
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --pk-primary: 208 78% 60%;
+  --pk-secondary: 198 78% 84%;
+  --pk-accent: 222 63% 40%;
+  --pk-bg: 199 60% 96%;
+  --pk-frame: 216 45% 22%;
+  --pk-text: 216 30% 12%;
+
+  --background: var(--pk-bg);
+  --foreground: var(--pk-text);
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: var(--pk-text);
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --popover-foreground: var(--pk-text);
+  --primary: var(--pk-primary);
+  --primary-foreground: 0 0% 100%;
+  --secondary: var(--pk-secondary);
+  --secondary-foreground: 220 29% 18%;
+  --muted: var(--pk-secondary);
+  --muted-foreground: 220 18% 35%;
+  --accent: 0 0% 100%;
+  --accent-foreground: var(--pk-text);
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-  --radius: 0.5rem;
+  --border: var(--pk-frame);
+  --input: var(--pk-secondary);
+  --ring: var(--pk-primary);
+  --radius: 0;
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+html[data-starter="squirtle"] {
+  --pk-primary: 208 78% 60%;
+  --pk-secondary: 198 78% 84%;
+  --pk-accent: 222 63% 40%;
+  --pk-bg: 199 60% 96%;
+  --pk-frame: 216 45% 22%;
+  --pk-text: 216 30% 12%;
+}
+
+html[data-starter="bulbasaur"] {
+  --pk-primary: 149 46% 52%;
+  --pk-secondary: 145 45% 83%;
+  --pk-accent: 157 42% 28%;
+  --pk-bg: 138 42% 95%;
+  --pk-frame: 151 36% 20%;
+  --pk-text: 150 30% 12%;
+}
+
+html[data-starter="charmander"] {
+  --pk-primary: 21 92% 64%;
+  --pk-secondary: 33 100% 84%;
+  --pk-accent: 14 80% 40%;
+  --pk-bg: 35 72% 95%;
+  --pk-frame: 18 45% 21%;
+  --pk-text: 20 34% 13%;
 }
 
 * {
@@ -50,22 +63,131 @@
 }
 
 html {
-  scroll-behavior: smooth;
 }
 
 section[id] {
   scroll-margin-top: 4rem;
 }
 
-/* Ensure sidebar nav buttons are clickable */
-nav button {
-  cursor: pointer;
+p {
+  margin-bottom: 0;
 }
 
 body {
+  position: relative;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  background-image:
+    radial-gradient(
+      circle at 15% 20%,
+      hsl(var(--pk-primary) / 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      hsl(var(--pk-secondary) / 0.36),
+      transparent 35%
+    ),
+    linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
   font-feature-settings:
     "rlig" 1,
     "calt" 1;
+}
+
+.pixel-font {
+  font-family: var(--font-pixel), monospace;
+  letter-spacing: 0.02em;
+}
+
+.pokemon-panel {
+  border: 4px solid hsl(var(--pk-frame));
+  box-shadow: 8px 8px 0 hsl(var(--pk-frame) / 0.25);
+  background: hsl(var(--card));
+}
+
+.pokemon-scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    hsl(var(--pk-frame) / 0.05) 2px,
+    hsl(var(--pk-frame) / 0.05) 4px
+  );
+}
+
+.pokemon-section-title {
+  display: inline-block;
+  width: fit-content;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 4px solid hsl(var(--pk-frame));
+  padding: 0.5rem 1rem;
+  box-shadow: 4px 4px 0 hsl(var(--pk-frame) / 0.2);
+}
+
+.pokemon-section-title-full {
+  display: block;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+.pokemon-panel-no-top-border {
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+
+/* Scrollbar customizado - Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--pk-bg) / 0.5);
+  border: 2px solid hsl(var(--pk-frame) / 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--pk-primary));
+  border: 2px solid hsl(var(--pk-frame));
+  background-clip: padding-box;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--pk-primary) / 0.85);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: hsl(var(--pk-primary)) hsl(var(--pk-bg) / 0.5);
+  scrollbar-width: thin;
+}
+
+/* Garantir que os ícones apareçam e se alinhem corretamente */
+.hn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.hn::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Garantir alinhamento correto em botões */
+button .hn,
+a .hn {
+  flex-shrink: 0;
 }

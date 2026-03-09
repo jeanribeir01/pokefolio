@@ -1,82 +1,118 @@
-"use client";
+﻿"use client";
 
-import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { formatDate, calculateDuration } from "@/lib/utils";
+import { PixelIcon } from "@/components/ui/pixel-icon";
 import type { Education } from "@/types/portfolio";
 
 interface EducationProps {
   education: Education[];
+  compact?: boolean;
 }
 
-export function EducationSection({ education }: EducationProps) {
+function toYear(date?: string) {
+  if (!date) return "Atual";
+  return date.slice(0, 4);
+}
+
+export function EducationSection({
+  education,
+  compact = false,
+}: EducationProps) {
   if (!education || education.length === 0) return null;
 
-  return (
-    <section id="education" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="space-y-12"
-        >
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+  if (compact) {
+    return (
+      <section id="education" className="h-full">
+        <div className="flex h-full flex-col gap-0">
+          <div>
+            <h2 className="pokemon-section-title pokemon-section-title-full pixel-font text-base sm:text-lg">
               Formação
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Minha jornada acadêmica
+          </div>
+          <div
+            className="h-full min-h-0 overflow-hidden pokemon-panel pokemon-panel-no-top-border bg-card/80 p-4 md:p-5 flex flex-col"
+            style={{
+              boxShadow:
+                "4px 4px 0px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px 0px rgba(0, 0, 0, 0.12)",
+            }}
+          >
+            <div className="min-h-0 flex-1 space-y-2 overflow-y-auto pr-2">
+              {education.map((edu, index) => (
+                <div
+                  key={index}
+                  className="pokemon-panel border-2 border-foreground/20 bg-background px-3 py-2"
+                >
+                  <p className="text-sm font-semibold text-foreground">
+                    {edu.studyType} em {edu.area}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {edu.institution}
+                  </p>
+                  <p className="mt-1 text-[11px] text-muted-foreground">
+                    {toYear(edu.startDate)} a {toYear(edu.endDate)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section id="education" className="py-20 bg-background pokemon-scanlines">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="space-y-12">
+          <div
+            className="pokemon-panel border-4 bg-card/70 p-6 text-center space-y-4"
+            style={{
+              boxShadow:
+                "4px 4px 0px 0px rgba(0, 0, 0, 0.2), 8px 8px 0px 0px rgba(0, 0, 0, 0.08)",
+            }}
+          >
+            <h2 className="pokemon-section-title pixel-font text-2xl md:text-3xl">
+              {"> FORMACAO >"}
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm text-muted-foreground">
+              Minha jornada academica
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="mx-auto max-w-3xl space-y-6">
             {education.map((edu, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 bg-primary/10 rounded-lg">
-                        <GraduationCap className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1 space-y-1">
-                        <CardTitle>{edu.institution}</CardTitle>
-                        <CardDescription>
-                          {edu.studyType} em {edu.area}
-                        </CardDescription>
-                        <div className="flex flex-wrap gap-2 text-sm text-muted-foreground pt-1">
-                          <span>{formatDate(edu.startDate)}</span>
-                          <span>—</span>
-                          <span>
-                            {edu.endDate ? formatDate(edu.endDate) : "Presente"}
-                          </span>
-                          <span>•</span>
-                          <span>
-                            {calculateDuration(edu.startDate, edu.endDate)}
-                          </span>
-                        </div>
+              <div key={index}>
+                <div
+                  className="pokemon-panel bg-card/80 p-5"
+                  style={{
+                    boxShadow:
+                      "4px 4px 0px 0px rgba(0, 0, 0, 0.2), 8px 8px 0px 0px rgba(0, 0, 0, 0.08)",
+                  }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 border-4 border-primary bg-primary/10 p-3">
+                      <PixelIcon name="graduation-cap" size="lg" />
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <h3 className="pixel-font text-lg text-foreground">
+                        {edu.institution}
+                      </h3>
+                      <p className="text-sm font-medium text-primary">
+                        {edu.studyType} em {edu.area}
+                      </p>
+                      <div className="flex flex-wrap gap-2 border-t-2 border-foreground/20 pt-1 text-xs text-muted-foreground">
+                        <span className="pt-1 font-semibold">
+                          {toYear(edu.startDate)}
+                        </span>
+                        <span className="pt-1">-</span>
+                        <span className="pt-1">{toYear(edu.endDate)}</span>
                       </div>
                     </div>
-                  </CardHeader>
-                </Card>
-              </motion.div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

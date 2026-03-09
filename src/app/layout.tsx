@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Press_Start_2P } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import { data } from "@/lib/data";
 
 const inter = Inter({ subsets: ["latin"] });
+const pressStart = Press_Start_2P({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pixel",
+});
 
 // Metadata dinâmica baseada no data.json
 export const metadata: Metadata = {
@@ -36,17 +40,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const starter = data.config?.starterPokemon ?? "squirtle";
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme={data.config?.darkMode ? "dark" : "light"}
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="pt-BR" suppressHydrationWarning data-starter={starter}>
+      <body className={`${inter.className} ${pressStart.variable}`}>
+        {children}
       </body>
     </html>
   );

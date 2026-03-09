@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart } from "lucide-react";
+import { PixelIcon } from "@/components/ui/pixel-icon";
 import type { Config } from "@/types/portfolio";
 
 interface FooterProps {
@@ -12,25 +12,25 @@ export function Footer({ config }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
+    <footer className="border-t-4 border-border bg-background">
+      <div className="mx-auto w-full max-w-[1400px] px-4 py-3 md:px-6 md:py-4 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
+          <p className="m-0 pixel-font text-xs text-muted-foreground text-center md:text-left sm:text-sm">
             © {currentYear} Todos os direitos reservados.
           </p>
 
           {showCredit && (
-            <p className="text-sm text-muted-foreground flex items-center gap-1">
+            <p className="m-0 flex items-center gap-1 text-xs text-muted-foreground sm:text-sm">
               Feito com
-              <Heart className="w-4 h-4 text-red-500 fill-red-500 inline" />
+              <PixelIcon name="heart" size="sm" className="text-red-500" />
               usando
               <a
-                href="https://github.com/viu-portfolio/viu"
+                href="https://github.com/pokefolio-portfolio/pokefolio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold hover:text-primary transition-colors"
+                className="font-semibold hover:text-primary"
               >
-                Viu
+                Pokefolio
               </a>
             </p>
           )}

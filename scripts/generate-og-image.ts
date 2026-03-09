@@ -146,7 +146,7 @@ async function generateOGImage() {
                 ],
               },
             },
-            // Footer com logo Viu
+            // Footer com logo Pokefolio
             {
               type: "div",
               props: {
@@ -192,7 +192,7 @@ async function generateOGImage() {
                         color: "#999",
                         fontWeight: 500,
                       },
-                      children: "Feito com Viu",
+                      children: "Feito com Pokefolio",
                     },
                   },
                 ],
