@@ -25,7 +25,7 @@ export function Footer({ config }: FooterProps) {
               <PixelIcon name="heart" size="sm" className="text-red-500" />
               usando
               <a
-                href="https://github.com/pokefolio-portfolio/pokefolio"
+                href="https://github.com/jeanribeir01/pokefolio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold hover:text-primary"
