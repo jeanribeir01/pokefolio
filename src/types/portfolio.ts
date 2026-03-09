@@ -1,5 +1,6 @@
 export interface Profile {
   network: string;
+  username?: string;
   url: string;
 }
 
@@ -13,17 +14,14 @@ export interface Basics {
   label: string;
   image?: string;
   email?: string;
-  phone?: string;
-  summary: string;
   heroGifUrl?: string;
+  summary: string;
   location?: Location;
   profiles?: Profile[];
 }
 
 export interface Project {
   name: string;
-  description?: string;
-  highlights?: string[];
   url?: string;
 }
 
@@ -38,11 +36,8 @@ export interface Education {
 export interface Work {
   name: string;
   position: string;
-  url?: string;
   startDate: string;
   endDate?: string;
-  summary?: string;
-  highlights?: string[];
 }
 
 export type StarterPokemon = "squirtle" | "bulbasaur" | "charmander";
@@ -59,6 +54,8 @@ export interface PokemonThemeTokens {
 }
 
 export interface Config {
+  theme?: string;
+  accentColor?: string;
   starterPokemon?: StarterPokemon;
   showFooterCredit?: boolean;
 }

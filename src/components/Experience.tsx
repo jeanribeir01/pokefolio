@@ -97,16 +97,6 @@ export function Experience({ work, compact = false }: ExperienceProps) {
                           </h3>
                           <div className="flex items-center gap-2 text-sm font-medium text-primary">
                             {job.name}
-                            {job.url && (
-                              <a
-                                href={job.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center"
-                              >
-                                <PixelIcon name="external-link" size="sm" />
-                              </a>
-                            )}
                           </div>
                         </div>
                         {!job.endDate && (
@@ -134,33 +124,6 @@ export function Experience({ work, compact = false }: ExperienceProps) {
                       </div>
                     </div>
                   </div>
-
-                  {(job.summary ||
-                    (job.highlights && job.highlights.length > 0)) && (
-                    <div className="mt-4 space-y-3 border-t-2 border-foreground/20 pt-4">
-                      {job.summary && (
-                        <p className="text-sm text-muted-foreground">
-                          {job.summary}
-                        </p>
-                      )}
-
-                      {job.highlights && job.highlights.length > 0 && (
-                        <ul className="space-y-1.5 text-xs">
-                          {job.highlights.slice(0, 3).map((highlight, i) => (
-                            <li
-                              key={i}
-                              className="flex items-start gap-2 text-muted-foreground"
-                            >
-                              <span className="mt-0.5 flex-shrink-0 text-primary">
-                                &gt;
-                              </span>
-                              <span>{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
             ))}

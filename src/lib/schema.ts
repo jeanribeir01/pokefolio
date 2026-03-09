@@ -2,6 +2,7 @@ import { z } from "zod";
 
 const profileSchema = z.object({
   network: z.string().min(1, "Nome da rede é obrigatório"),
+  username: z.string().optional(),
   url: z.string().url("URL inválida"),
 });
 
@@ -15,24 +16,18 @@ const basicsSchema = z.object({
   label: z.string().min(2, "Título profissional é obrigatório"),
   image: z.string().url("URL da imagem inválida").optional().or(z.literal("")),
   email: z.string().email("Email inválido").optional().or(z.literal("")),
-  summary: z.string().min(10, "Resumo deve ter pelo menos 10 caracteres"),
   heroGifUrl: z
     .string()
     .url("URL do GIF inválida")
     .optional()
     .or(z.literal("")),
-  phone: z.string().optional(),
+  summary: z.string().min(10, "Resumo deve ter pelo menos 10 caracteres"),
   location: locationSchema.optional(),
   profiles: z.array(profileSchema).optional(),
 });
 
 const projectSchema = z.object({
   name: z.string().min(1, "Nome do projeto é obrigatório"),
-  description: z
-    .string()
-    .min(10, "Descrição deve ter pelo menos 10 caracteres")
-    .optional(),
-  highlights: z.array(z.string()).optional(),
   url: z.string().url("URL do projeto inválida").optional().or(z.literal("")),
 });
 
@@ -55,7 +50,6 @@ const educationSchema = z.object({
 const workSchema = z.object({
   name: z.string().min(1, "Nome da empresa é obrigatório"),
   position: z.string().min(1, "Cargo é obrigatório"),
-  url: z.string().url("URL da empresa inválida").optional().or(z.literal("")),
   startDate: z
     .string()
     .regex(/^[0-9]{4}-[0-9]{2}$/, "Data deve estar no formato YYYY-MM"),
@@ -66,12 +60,15 @@ const workSchema = z.object({
       "Data deve estar no formato YYYY-MM ou vazia",
     )
     .optional(),
-  summary: z.string().optional(),
-  highlights: z.array(z.string()).optional(),
 });
 
 const configSchema = z
   .object({
+    theme: z.string().optional(),
+    accentColor: z
+      .string()
+      .regex(/^#[0-9a-fA-F]{6}$/, "Cor deve estar no formato hexadecimal")
+      .optional(),
     starterPokemon: z
       .enum(["squirtle", "bulbasaur", "charmander"])
       .default("squirtle"),

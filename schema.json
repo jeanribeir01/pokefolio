@@ -9,7 +9,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "Seu nome completo",
+          "description": "Seu nome",
           "minLength": 2
         },
         "label": {
@@ -27,13 +27,9 @@
           "description": "Seu email de contato",
           "format": "email"
         },
-        "phone": {
+        "heroGifUrl": {
           "type": "string",
-          "description": "Seu telefone com DDD"
-        },
-        "url": {
-          "type": "string",
-          "description": "Seu site ou blog pessoal",
+          "description": "URL de um GIF de destaque para o painel lateral",
           "format": "uri"
         },
         "summary": {
@@ -51,12 +47,6 @@
             "region": {
               "type": "string",
               "description": "Estado (ex: SP)"
-            },
-            "countryCode": {
-              "type": "string",
-              "description": "Código do país (ex: BR)",
-              "minLength": 2,
-              "maxLength": 2
             }
           }
         },
@@ -113,33 +103,10 @@
             "type": "string",
             "description": "Nome do projeto"
           },
-          "description": {
-            "type": "string",
-            "description": "Descrição do que o projeto faz",
-            "minLength": 10
-          },
-          "highlights": {
-            "type": "array",
-            "description": "Destaques do projeto (tecnologias, resultados)",
-            "items": {
-              "type": "string"
-            }
-          },
           "url": {
             "type": "string",
             "description": "Link do projeto (GitHub, demo, etc)",
             "format": "uri"
-          },
-          "image": {
-            "type": "string",
-            "description": "Imagem de preview do projeto"
-          },
-          "tags": {
-            "type": "array",
-            "description": "Tags/tecnologias usadas",
-            "items": {
-              "type": "string"
-            }
           }
         }
       }
@@ -191,11 +158,6 @@
             "type": "string",
             "description": "Seu cargo"
           },
-          "url": {
-            "type": "string",
-            "description": "Site da empresa",
-            "format": "uri"
-          },
           "startDate": {
             "type": "string",
             "description": "Data de início (YYYY-MM)",
@@ -205,36 +167,6 @@
             "type": "string",
             "description": "Data de saída (YYYY-MM) ou vazio se atual",
             "pattern": "^([0-9]{4}-[0-9]{2})?$"
-          },
-          "summary": {
-            "type": "string",
-            "description": "Descrição das suas atividades"
-          },
-          "highlights": {
-            "type": "array",
-            "description": "Principais conquistas neste cargo",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "languages": {
-      "type": "array",
-      "description": "Idiomas que você fala",
-      "items": {
-        "type": "object",
-        "required": ["language", "fluency"],
-        "properties": {
-          "language": {
-            "type": "string",
-            "description": "Nome do idioma"
-          },
-          "fluency": {
-            "type": "string",
-            "description": "Nível de fluência",
-            "enum": ["Nativo", "Avançado", "Intermediário", "Básico"]
           }
         }
       }
@@ -260,24 +192,10 @@
           "enum": ["squirtle", "bulbasaur", "charmander"],
           "default": "squirtle"
         },
-        "darkMode": {
-          "type": "boolean",
-          "description": "Ativar dark mode por padrão",
-          "default": true
-        },
         "showFooterCredit": {
           "type": "boolean",
           "description": "Mostrar 'Feito com Pokefolio' no rodapé",
           "default": true
-        },
-        "githubAutoFetch": {
-          "type": "boolean",
-          "description": "Buscar automaticamente seus repositórios do GitHub",
-          "default": true
-        },
-        "analyticsId": {
-          "type": "string",
-          "description": "ID do Google Analytics (opcional)"
         }
       }
     }

@@ -47,39 +47,23 @@
   "projects": [
     {
       "name": "algorithms-exercises",
-      "description": "Created with CodeSandbox",
-      "url": "https://github.com/jeanribeir01/algorithms-exercises",
-      "tags": [],
-      "highlights": ["⭐ 0 estrelas"],
-      "image": "https://codesandbox.io/s/github/btholt/algorithms-exercises"
+      "url": "https://github.com/jeanribeir01/algorithms-exercises"
     },
     {
       "name": "pokefolio",
-      "description": "Crie seu portfólio profissional editando um JSON. Deploy automático via GitHub Pages.",
-      "url": "https://github.com/jeanribeir01/pokefolio",
-      "tags": ["TypeScript"],
-      "highlights": ["⭐ 0 estrelas"]
+      "url": "https://github.com/jeanribeir01/pokefolio"
     },
     {
       "name": "ponto-de-partida",
-      "description": "Sem descrição",
-      "url": "https://github.com/jeanribeir01/ponto-de-partida",
-      "tags": ["JavaScript"],
-      "highlights": ["⭐ 0 estrelas"]
+      "url": "https://github.com/jeanribeir01/ponto-de-partida"
     },
     {
       "name": "gestao-hogwarts",
-      "description": "Sem descrição",
-      "url": "https://github.com/jeanribeir01/gestao-hogwarts",
-      "tags": ["PHP"],
-      "highlights": ["⭐ 0 estrelas"]
+      "url": "https://github.com/jeanribeir01/gestao-hogwarts"
     },
     {
       "name": "batalha-rpg",
-      "description": "Sem descrição",
-      "url": "https://github.com/jeanribeir01/batalha-rpg",
-      "tags": ["PHP"],
-      "highlights": ["⭐ 0 estrelas"]
+      "url": "https://github.com/jeanribeir01/batalha-rpg"
     }
   ],
   "education": [
@@ -98,26 +82,19 @@
       "url": "https://portal.unis.edu.br/",
       "startDate": "2024-07",
       "endDate": "",
-      "summary": "",
-      "highlights": [""]
+      "summary": ""
     },
     {
       "name": "Pentacústica",
       "position": "web developer / marketing",
-      "url": "https://pentacustica.com/",
       "startDate": "2021-11",
-      "endDate": "2023-10",
-      "summary": "",
-      "highlights": [""]
+      "endDate": "2023-10"
     },
     {
       "name": "Wizzer Imóveis",
       "position": "frontend developer",
-      "url": "https://wizzer.com.br/",
       "startDate": "2019-11",
-      "endDate": "2021-10",
-      "summary": "",
-      "highlights": []
+      "endDate": "2021-10"
     }
   ],
   "config": {

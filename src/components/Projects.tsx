@@ -125,25 +125,7 @@ export function Projects({ projects, compact = false }: ProjectsProps) {
                         </a>
                       )}
                     </div>
-                    {project.description && (
-                      <p className="mt-2 text-xs text-muted-foreground line-clamp-2">
-                        {project.description}
-                      </p>
-                    )}
                   </div>
-
-                  {project.highlights && project.highlights.length > 0 && (
-                    <ul className="space-y-1.5 text-xs text-muted-foreground flex-1">
-                      {project.highlights.slice(0, 3).map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-primary mt-0.5 flex-shrink-0">
-                            ▸
-                          </span>
-                          <span className="line-clamp-1">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </div>
               </div>
             ))}

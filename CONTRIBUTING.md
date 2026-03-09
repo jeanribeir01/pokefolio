@@ -180,7 +180,6 @@ git commit -m "feat: descrição clara da mudança"
 npm run validate
 
 # Execute os scripts
-npm run generate:og
 npm run fetch:github
 
 # Execute o build
@@ -245,7 +244,6 @@ tipo(escopo): descrição
 
 ```bash
 git commit -m "feat: adiciona suporte para Google Analytics"
-git commit -m "fix: corrige erro ao gerar OG image"
 git commit -m "docs: atualiza README com novos exemplos"
 git commit -m "refactor: simplifica lógica de validação"
 ```

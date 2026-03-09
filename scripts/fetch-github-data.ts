@@ -2,11 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 
 interface GitHubRepo {
   name: string;
-  description: string | null;
   html_url: string;
-  language: string | null;
-  stargazers_count: number;
-  homepage: string | null;
 }
 
 interface GitHubUser {
@@ -151,13 +147,7 @@ async function fetchGitHubRepos() {
     // Converte repos para formato do portfolio
     const projects = repos.map((repo) => ({
       name: repo.name,
-      description: repo.description || "Sem descrição",
       url: repo.html_url,
-      tags: repo.language ? [repo.language] : [],
-      highlights: [
-        `⭐ ${repo.stargazers_count} ${repo.stargazers_count === 1 ? "estrela" : "estrelas"}`,
-      ],
-      ...(repo.homepage && { image: repo.homepage }),
     }));
 
     // Atualiza data.json
@@ -170,8 +160,6 @@ async function fetchGitHubRepos() {
 
     projects.forEach((project, i) => {
       console.log(`${i + 1}. ${project.name}`);
-      console.log(`   ${project.description}`);
-      console.log(`   ${project.highlights.join(", ")}\n`);
     });
 
     console.log("📝 data.json atualizado automaticamente\n");
