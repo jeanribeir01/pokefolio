@@ -6,7 +6,7 @@
     "image": "https://avatars.githubusercontent.com/u/173914591?v=4",
     "email": "jeanribeiro1905@gmail.com",
     "summary": "Olá! Meu nome é Jean, trabalho com front tem 4 anos. Comecei na área de tecnologia com UX/UI mais focado em UI e com o tempo fui me aproximando do frontend onde desenvolvia páginas sempre focado em estar condizente com a UI proposta. Sou curioso e sempre aceito um desafio, gosto de fazer telas bonitas e me inspiro muito em jogos (vide meu portfolio :p). Gosto bastante de ler, principalmente fantasias e ficção científica. ",
-    "heroGifUrl": "https://media.giphy.com/media/EjJgeEVUCfuTe/giphy.gif",
+    "heroGifUrl": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjkzb3FmcjBhdHNtMmlyYXltYjRqYmxlem8yZ25kaGtraXdlbW02NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/I2nZMy0sI0ySA/giphy.gif",
     "location": {
       "city": "Varginha",
       "region": "MG"
@@ -50,54 +50,36 @@
       "description": "Created with CodeSandbox",
       "url": "https://github.com/jeanribeir01/algorithms-exercises",
       "tags": [],
-      "highlights": [
-        "⭐ 0 estrelas"
-      ],
+      "highlights": ["⭐ 0 estrelas"],
       "image": "https://codesandbox.io/s/github/btholt/algorithms-exercises"
     },
     {
       "name": "pokefolio",
       "description": "Crie seu portfólio profissional editando um JSON. Deploy automático via GitHub Pages.",
       "url": "https://github.com/jeanribeir01/pokefolio",
-      "tags": [
-        "TypeScript"
-      ],
-      "highlights": [
-        "⭐ 0 estrelas"
-      ]
+      "tags": ["TypeScript"],
+      "highlights": ["⭐ 0 estrelas"]
     },
     {
       "name": "ponto-de-partida",
       "description": "Sem descrição",
       "url": "https://github.com/jeanribeir01/ponto-de-partida",
-      "tags": [
-        "JavaScript"
-      ],
-      "highlights": [
-        "⭐ 0 estrelas"
-      ]
+      "tags": ["JavaScript"],
+      "highlights": ["⭐ 0 estrelas"]
     },
     {
       "name": "gestao-hogwarts",
       "description": "Sem descrição",
       "url": "https://github.com/jeanribeir01/gestao-hogwarts",
-      "tags": [
-        "PHP"
-      ],
-      "highlights": [
-        "⭐ 0 estrelas"
-      ]
+      "tags": ["PHP"],
+      "highlights": ["⭐ 0 estrelas"]
     },
     {
       "name": "batalha-rpg",
       "description": "Sem descrição",
       "url": "https://github.com/jeanribeir01/batalha-rpg",
-      "tags": [
-        "PHP"
-      ],
-      "highlights": [
-        "⭐ 0 estrelas"
-      ]
+      "tags": ["PHP"],
+      "highlights": ["⭐ 0 estrelas"]
     }
   ],
   "education": [
@@ -138,7 +120,7 @@
     }
   ],
   "config": {
-    "starterPokemon": "charmander",
+    "starterPokemon": "bulbasaur",
     "showFooterCredit": true
   }
 }
