@@ -47,23 +47,57 @@
   "projects": [
     {
       "name": "algorithms-exercises",
-      "url": "https://github.com/jeanribeir01/algorithms-exercises"
+      "description": "Created with CodeSandbox",
+      "url": "https://github.com/jeanribeir01/algorithms-exercises",
+      "tags": [],
+      "highlights": [
+        "⭐ 0 estrelas"
+      ],
+      "image": "https://codesandbox.io/s/github/btholt/algorithms-exercises"
     },
     {
-      "name": "viu",
-      "url": "https://github.com/jeanribeir01/viu"
+      "name": "pokefolio",
+      "description": "Crie seu portfólio profissional editando um JSON. Deploy automático via GitHub Pages.",
+      "url": "https://github.com/jeanribeir01/pokefolio",
+      "tags": [
+        "TypeScript"
+      ],
+      "highlights": [
+        "⭐ 0 estrelas"
+      ]
     },
     {
       "name": "ponto-de-partida",
-      "url": "https://github.com/jeanribeir01/ponto-de-partida"
+      "description": "Sem descrição",
+      "url": "https://github.com/jeanribeir01/ponto-de-partida",
+      "tags": [
+        "JavaScript"
+      ],
+      "highlights": [
+        "⭐ 0 estrelas"
+      ]
     },
     {
       "name": "gestao-hogwarts",
-      "url": "https://github.com/jeanribeir01/gestao-hogwarts"
+      "description": "Sem descrição",
+      "url": "https://github.com/jeanribeir01/gestao-hogwarts",
+      "tags": [
+        "PHP"
+      ],
+      "highlights": [
+        "⭐ 0 estrelas"
+      ]
     },
     {
       "name": "batalha-rpg",
-      "url": "https://github.com/jeanribeir01/batalha-rpg"
+      "description": "Sem descrição",
+      "url": "https://github.com/jeanribeir01/batalha-rpg",
+      "tags": [
+        "PHP"
+      ],
+      "highlights": [
+        "⭐ 0 estrelas"
+      ]
     }
   ],
   "education": [
