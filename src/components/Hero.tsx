@@ -1,158 +1,145 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  Twitter,
-  Mail,
-  MapPin,
-  ExternalLink,
-} from "lucide-react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import type { Basics } from "@/types/portfolio";
+import { PixelIcon } from "@/components/ui/pixel-icon";
+import { getStarterTheme } from "@/lib/pokemonTheme";
+import type { Basics, Config } from "@/types/portfolio";
 
 interface HeroProps {
   data: Basics;
+  config?: Config;
 }
 
-const socialIcons: Record<
-  string,
-  React.ComponentType<{ className?: string }>
-> = {
-  GitHub: Github,
-  LinkedIn: Linkedin,
-  Twitter: Twitter,
-  Instagram: Twitter,
-  Facebook: Twitter,
+const socialIconMap: Record<string, "github" | "linkedin" | "twitter"> = {
+  GitHub: "github",
+  LinkedIn: "linkedin",
+  Twitter: "twitter",
 };
 
-export function Hero({ data }: HeroProps) {
+export function Hero({ data, config }: HeroProps) {
+  const starterTheme = getStarterTheme(config?.starterPokemon);
+
   return (
-    <section
-      id="hero"
-      className="relative min-h-[90vh] flex items-center justify-center py-20"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex flex-col items-center text-center space-y-8">
-          {/* Avatar */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
+    <section id="hero" className="relative w-full h-full min-h-[200px]">
+      <div
+        className="relative w-full h-full pokemon-panel bg-card/80 p-4 md:p-5 flex flex-col"
+        style={{
+          boxShadow:
+            "4px 4px 0px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px 0px rgba(0, 0, 0, 0.12)",
+        }}
+      >
+        <div className="grid grid-cols-1 items-start gap-3 md:grid-cols-[auto,minmax(0,1fr)] md:gap-4">
+          <div className="flex flex-row items-start gap-3">
             {data.image && (
-              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+              <div
+                className="relative h-28 w-28 flex-shrink-0 overflow-hidden border-4 border-primary pokemon-panel bg-background sm:h-32 sm:w-32"
+                style={{
+                  boxShadow:
+                    "3px 3px 0px 0px rgba(0, 0, 0, 0.24), 6px 6px 0px 0px rgba(0, 0, 0, 0.12)",
+                }}
+              >
                 <Image
                   src={data.image}
                   alt={data.name}
                   fill
                   className="object-cover"
                   priority
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.src = "/placeholder-avatar.svg";
+                  }}
                 />
               </div>
             )}
-          </motion.div>
 
-          {/* Nome e Título */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              {data.name}
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-              {data.label}
-            </p>
-          </motion.div>
-
-          {/* Localização */}
-          {data.location && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-2 text-muted-foreground"
+            <div
+              className="relative h-28 w-28 flex-shrink-0 overflow-hidden pokemon-panel bg-background sm:h-32 sm:w-32"
+              style={{
+                boxShadow:
+                  "3px 3px 0px 0px rgba(0, 0, 0, 0.24), 6px 6px 0px 0px rgba(0, 0, 0, 0.12)",
+              }}
             >
-              <MapPin className="w-4 h-4" />
-              <span>
-                {data.location.city}, {data.location.region} -{" "}
-                {data.location.countryCode}
-              </span>
-            </motion.div>
-          )}
+              <Image
+                src={starterTheme.sprite}
+                alt={starterTheme.speciesLabel}
+                width={128}
+                height={128}
+                unoptimized
+                className="h-full w-full object-contain p-2 [image-rendering:pixelated]"
+              />
+            </div>
+          </div>
 
-          {/* Resumo */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-2xl text-lg text-muted-foreground leading-relaxed"
-          >
-            {data.summary}
-          </motion.p>
+          <div className="flex flex-col gap-2 min-w-0">
+            <div>
+              <h1 className="text-lg font-semibold leading-tight tracking-tight text-foreground sm:text-xl md:text-2xl">
+                {data.name}
+              </h1>
+              <p className="text-sm font-medium text-primary md:text-base">
+                {data.label}
+              </p>
+            </div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-wrap gap-4 justify-center"
-          >
-            {data.email && (
-              <Button asChild size="lg">
-                <a href={`mailto:${data.email}`}>
-                  <Mail className="w-4 h-4" />
-                  Entre em Contato
-                </a>
-              </Button>
+            {data.location && (
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <PixelIcon
+                  name="location-pin"
+                  size="md"
+                  className="text-[hsl(var(--primary))]"
+                />
+                <span className="text-xs sm:text-sm">
+                  {data.location.city}, {data.location.region}
+                </span>
+              </div>
             )}
-            {data.url && (
-              <Button asChild variant="outline" size="lg">
-                <a href={data.url} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4" />
-                  Website
-                </a>
-              </Button>
-            )}
-          </motion.div>
 
-          {/* Redes Sociais */}
-          {data.profiles && data.profiles.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex gap-4"
-            >
-              {data.profiles.map((profile, index) => {
-                const Icon = socialIcons[profile.network] || ExternalLink;
-                return (
-                  <Button key={index} variant="ghost" size="icon" asChild>
-                    <a
-                      href={profile.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={profile.network}
-                    >
-                      <Icon className="w-5 h-5" />
-                    </a>
-                  </Button>
-                );
-              })}
-            </motion.div>
-          )}
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {data.email && (
+                <a
+                  href={`mailto:${data.email}`}
+                  className="inline-flex items-center gap-2 border-2 border-foreground bg-secondary text-[hsl(var(--primary))] px-4 py-2 text-sm font-semibold pixel-font hover:bg-secondary/80 transition-colors"
+                >
+                  <PixelIcon
+                    name="envelope"
+                    size="md"
+                    className="text-[hsl(var(--primary))]"
+                  />
+                  <span className="text-[hsl(var(--primary))]">CONTATO</span>
+                </a>
+              )}
+
+              {data.profiles && data.profiles.length > 0 && (
+                <div className="flex items-center gap-1.5">
+                  {data.profiles.map((profile, index) => {
+                    const iconName: "github" | "linkedin" | "twitter" =
+                      (socialIconMap[profile.network] || "twitter") as
+                        | "github"
+                        | "linkedin"
+                        | "twitter";
+
+                    return (
+                      <a
+                        key={index}
+                        href={profile.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={profile.network}
+                        title={profile.network}
+                        className="inline-flex items-center justify-center border-2 border-foreground bg-secondary text-[hsl(var(--primary))] w-10 h-10 hover:bg-secondary/80 transition-colors"
+                      >
+                        <PixelIcon
+                          name={iconName}
+                          size="md"
+                          className="text-[hsl(var(--primary))]"
+                        />
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Decoração de fundo */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
       </div>
     </section>
   );

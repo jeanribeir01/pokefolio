@@ -1,6 +1,6 @@
-# Contribuindo para o Viu 👀
+# Contribuindo para o Pokefolio 👀
 
-Primeiramente, obrigado por considerar contribuir para o Viu! São pessoas como você que tornam o Viu uma ferramenta incrível para a comunidade de desenvolvedores.
+Primeiramente, obrigado por considerar contribuir para o Pokefolio! São pessoas como você que tornam o Pokefolio uma ferramenta incrível para a comunidade de desenvolvedores.
 
 ## 📋 Índice
 
@@ -41,7 +41,7 @@ Este projeto e todos que participam dele são regidos por um código de conduta.
 
 ## 🤝 Como Posso Contribuir?
 
-Existem várias formas de contribuir para o Viu:
+Existem várias formas de contribuir para o Pokefolio:
 
 ### 1. Reportar Bugs 🐛
 
@@ -95,7 +95,7 @@ Documentação é crucial! Você pode ajudar:
 - Responder perguntas nas [Discussions](../../discussions)
 - Ajudar outros usuários em issues
 - Compartilhar o projeto nas redes sociais
-- Escrever posts sobre o Viu
+- Escrever posts sobre o Pokefolio
 
 ---
 
@@ -117,14 +117,14 @@ Documentação é crucial! Você pode ajudar:
 2. **Clone seu fork**
 
    ```bash
-   git clone https://github.com/SEU-USUARIO/viu.git
-   cd viu
+   git clone https://github.com/SEU-USUARIO/pokefolio.git
+   cd pokefolio
    ```
 
 3. **Adicione o repositório original como upstream**
 
    ```bash
-   git remote add upstream https://github.com/ORIGINAL-OWNER/viu.git
+   git remote add upstream https://github.com/ORIGINAL-OWNER/pokefolio.git
    ```
 
 4. **Instale as dependências**
@@ -253,7 +253,7 @@ git commit -m "refactor: simplifica lógica de validação"
 ### Estrutura de Arquivos
 
 ```
-viu/
+pokefolio/
 ├── src/
 │   ├── app/              # Rotas Next.js
 │   ├── components/       # Componentes React
@@ -418,7 +418,7 @@ Ao reportar um bug, inclua o máximo de informações possível:
 - OS: [e.g. Windows 11, macOS 14]
 - Node.js: [e.g. 20.11.0]
 - Navegador: [e.g. Chrome 121]
-- Versão do Viu: [e.g. 1.0.0]
+- Versão do Pokefolio: [e.g. 1.0.0]
 
 ## Contexto Adicional
 
@@ -519,6 +519,6 @@ Se tiver dúvidas sobre como contribuir:
 
 <div align="center">
 
-**Obrigado por contribuir para o Viu! 👀**
+**Obrigado por contribuir para o Pokefolio! 👀**
 
 </div>

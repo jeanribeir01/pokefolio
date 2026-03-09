@@ -25,32 +25,38 @@ interface PortfolioData {
     image?: string;
     profiles?: Array<{
       network: string;
-      username: string;
+      username?: string;
       url: string;
     }>;
   };
   projects?: Array<unknown>;
   config?: {
+    // Mantido apenas por compatibilidade de tipo com data.json.
     githubAutoFetch?: boolean;
   };
 }
 
+function extractGitHubUsernameFromUrl(url?: string): string | undefined {
+  if (!url) {
+    return undefined;
+  }
+
+  try {
+    const { pathname } = new URL(url);
+    const username = pathname.split("/").filter(Boolean)[0];
+    return username || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 async function fetchGitHubRepos() {
-  console.log("🔍 Verificando configuração de auto-fetch...\n");
+  console.log("🔍 Iniciando import automático do GitHub...\n");
 
   try {
     const data: PortfolioData = JSON.parse(
       readFileSync("./data.json", "utf-8"),
     );
-
-    // Verifica se auto-fetch está habilitado
-    if (!data.config?.githubAutoFetch) {
-      console.log("⏭️  Auto-fetch do GitHub está desabilitado");
-      console.log(
-        "💡 Para habilitar, configure githubAutoFetch: true no data.json\n",
-      );
-      process.exit(0);
-    }
 
     // Busca username do GitHub
     const githubProfile = data.basics.profiles?.find(
@@ -60,10 +66,20 @@ async function fetchGitHubRepos() {
     if (!githubProfile) {
       console.log("⚠️  Nenhum perfil do GitHub encontrado no data.json");
       console.log("💡 Adicione seu GitHub em basics.profiles\n");
-      process.exit(0);
+      return;
     }
 
-    const username = githubProfile.username;
+    const username =
+      githubProfile.username || extractGitHubUsernameFromUrl(githubProfile.url);
+
+    if (!username) {
+      console.log("⚠️  Não foi possível identificar o username do GitHub");
+      console.log(
+        "💡 Preencha basics.profiles[].username ou use uma URL como https://github.com/seu-usuario\n",
+      );
+      return;
+    }
+
     console.log(`📦 Buscando dados de @${username}...\n`);
 
     const headers = {
@@ -92,7 +108,7 @@ async function fetchGitHubRepos() {
       } else {
         console.log(`❌ Erro ao buscar perfil: ${userResponse.status}`);
       }
-      process.exit(0);
+      return;
     }
 
     const user: GitHubUser = await userResponse.json();
@@ -122,14 +138,14 @@ async function fetchGitHubRepos() {
       } else {
         console.log(`❌ Erro ao buscar repos: ${reposResponse.status}`);
       }
-      process.exit(0);
+      return;
     }
 
     const repos: GitHubRepo[] = await reposResponse.json();
 
     if (repos.length === 0) {
       console.log("📭 Nenhum repositório público encontrado");
-      process.exit(0);
+      return;
     }
 
     // Converte repos para formato do portfolio
@@ -159,16 +175,12 @@ async function fetchGitHubRepos() {
     });
 
     console.log("📝 data.json atualizado automaticamente\n");
-
-    process.exit(0);
   } catch (error) {
     console.error("❌ Erro ao buscar repositórios:");
     console.error(error);
 
     console.log("\n⚠️  Prosseguindo sem importar repositórios");
     console.log("💡 Verifique sua conexão e tente novamente\n");
-
-    process.exit(0);
   }
 }
 

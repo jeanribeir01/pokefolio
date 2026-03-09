@@ -45,8 +45,8 @@ function getRepositoryName(): string {
   }
 
   // 4. Fallback final
-  console.log("⚠️  Usando nome padrão: viu");
-  return "viu";
+  console.log("⚠️  Usando nome padrão: pokefolio");
+  return "pokefolio";
 }
 
 function updateNextConfig(repoName: string) {

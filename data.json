@@ -1,107 +1,78 @@
 {
   "$schema": "./schema.json",
   "basics": {
-    "name": "Seu Nome Completo",
-    "label": "Desenvolvedor Full Stack",
-    "image": "https://github.com/seu-usuario.png",
-    "email": "seuemail@exemplo.com",
-    "phone": "+55 11 99999-9999",
-    "url": "https://seusite.com",
-    "summary": "Desenvolvedor apaixonado por criar soluções web modernas e eficientes. Especializado em React, Next.js e Node.js. Sempre buscando aprender novas tecnologias e compartilhar conhecimento com a comunidade.",
+    "name": "jean",
+    "label": "dev fullstack",
+    "image": "https://avatars.githubusercontent.com/u/173914591?v=4",
+    "email": "jeanribeiro1905@gmail.com",
+    "summary": "Olá! Meu nome é Jean, trabalho com front tem 4 anos. Comecei na área de tecnologia com UX/UI mais focado em UI e com o tempo fui me aproximando do frontend onde desenvolvia páginas sempre focado em estar condizente com a UI proposta. Sou curioso e sempre aceito um desafio, gosto de fazer telas bonitas e me inspiro muito em jogos (vide meu portfolio :p). Gosto bastante de ler, principalmente fantasias e ficção científica. ",
+    "heroGifUrl": "https://media.giphy.com/media/EjJgeEVUCfuTe/giphy.gif",
     "location": {
-      "city": "São Paulo",
-      "region": "SP",
-      "countryCode": "BR"
+      "city": "Varginha",
+      "region": "MG"
     },
     "profiles": [
       {
         "network": "GitHub",
-        "username": "seu-usuario",
-        "url": "https://github.com/seu-usuario"
+        "url": "https://github.com/jeanribeir01"
       },
       {
         "network": "LinkedIn",
-        "username": "seu-usuario",
-        "url": "https://linkedin.com/in/seu-usuario"
+        "url": "https://linkedin.com/in/jeanribeir0/"
       },
       {
         "network": "Twitter",
-        "username": "seu-usuario",
-        "url": "https://twitter.com/seu-usuario"
+        "url": "https://x.com/jeanribeir01"
       }
     ]
   },
   "skills": [
-    {
-      "category": "Frontend",
-      "items": [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "HTML5",
-        "CSS3"
-      ]
-    },
-    {
-      "category": "Backend",
-      "items": ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis"]
-    },
-    {
-      "category": "DevOps",
-      "items": ["Docker", "GitHub Actions", "AWS", "Linux", "Nginx"]
-    },
-    {
-      "category": "Tools",
-      "items": ["Git", "VS Code", "Figma", "Postman"]
-    }
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "HTML5",
+    "CSS3",
+    "Node.js",
+    "Python",
+    "PostgreSQL",
+    "Docker",
+    "GitHub Actions",
+    "Linux",
+    "Nginx",
+    "Git",
+    "VS Code",
+    "Figma"
   ],
   "projects": [
     {
-      "name": "azure-stream-analytics",
-      "description": "Azure Stream Analytics",
-      "url": "https://github.com/seu-usuario/azure-stream-analytics",
-      "tags": ["C#"],
-      "highlights": ["⭐ 0 estrelas"]
+      "name": "algorithms-exercises",
+      "url": "https://github.com/jeanribeir01/algorithms-exercises"
     },
     {
-      "name": "SignalR",
-      "description": "Incredibly simple real-time web for .NET",
-      "url": "https://github.com/seu-usuario/SignalR",
-      "tags": ["C#"],
-      "highlights": ["⭐ 0 estrelas"],
-      "image": "http://signalr.net"
+      "name": "viu",
+      "url": "https://github.com/jeanribeir01/viu"
     },
     {
-      "name": "MassTransit-AzureServiceBus",
-      "description": "Azure Service Bus Transport for MassTransit",
-      "url": "https://github.com/seu-usuario/MassTransit-AzureServiceBus",
-      "tags": ["C#"],
-      "highlights": ["⭐ 0 estrelas"]
+      "name": "ponto-de-partida",
+      "url": "https://github.com/jeanribeir01/ponto-de-partida"
     },
     {
-      "name": "MassTransit",
-      "description": "Distributed Application Framework for .NET supporting MSMQ and RabbitMQ",
-      "url": "https://github.com/seu-usuario/MassTransit",
-      "tags": ["C#"],
-      "highlights": ["⭐ 0 estrelas"],
-      "image": "http://masstransit-project.com/"
+      "name": "gestao-hogwarts",
+      "url": "https://github.com/jeanribeir01/gestao-hogwarts"
+    },
+    {
+      "name": "batalha-rpg",
+      "url": "https://github.com/jeanribeir01/batalha-rpg"
     }
   ],
   "education": [
     {
-      "institution": "Universidade de São Paulo",
-      "area": "Ciência da Computação",
+      "institution": "Grupo Unis",
+      "area": "Engenharia de Software",
       "studyType": "Bacharelado",
-      "startDate": "2022-02",
-      "endDate": "2026-12"
-    },
-    {
-      "institution": "Rocketseat",
-      "area": "Desenvolvimento Web Full Stack",
-      "studyType": "Bootcamp",
-      "startDate": "2023-01",
-      "endDate": "2023-06"
+      "startDate": "2025-02",
+      "endDate": ""
     }
   ],
   "work": [
@@ -132,26 +103,8 @@
       ]
     }
   ],
-  "languages": [
-    {
-      "language": "Português",
-      "fluency": "Nativo"
-    },
-    {
-      "language": "Inglês",
-      "fluency": "Avançado"
-    },
-    {
-      "language": "Espanhol",
-      "fluency": "Intermediário"
-    }
-  ],
   "config": {
-    "theme": "default",
-    "accentColor": "#6366f1",
-    "darkMode": true,
-    "showFooterCredit": true,
-    "githubAutoFetch": false,
-    "analyticsId": ""
+    "starterPokemon": "charmander",
+    "showFooterCredit": true
   }
 }

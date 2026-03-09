@@ -1,128 +1,154 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Star, GitFork } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { PixelIcon } from "@/components/ui/pixel-icon";
 import type { Project } from "@/types/portfolio";
 
 interface ProjectsProps {
   projects: Project[];
+  compact?: boolean;
 }
 
-export function Projects({ projects }: ProjectsProps) {
+export function Projects({ projects, compact = false }: ProjectsProps) {
   if (!projects || projects.length === 0) return null;
 
-  return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="space-y-12"
-        >
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+  if (compact) {
+    return (
+      <section id="projects" className="h-full">
+        <div className="flex h-full flex-col gap-0">
+          <div>
+            <h2 className="pokemon-section-title pokemon-section-title-full pixel-font text-base sm:text-lg">
               Projetos
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          </div>
+          <div
+            className="h-full min-h-0 overflow-hidden pokemon-panel pokemon-panel-no-top-border bg-card/80 p-4 md:p-5 flex flex-col"
+            style={{
+              boxShadow:
+                "4px 4px 0px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px 0px rgba(0, 0, 0, 0.12)",
+            }}
+          >
+            <div className="min-h-0 flex-1 space-y-2 overflow-y-auto pr-2">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="pokemon-panel border-2 border-foreground/20 bg-background px-3 py-2"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-semibold text-foreground">
+                      {project.name}
+                    </p>
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline shrink-0"
+                      >
+                        Link
+                        <PixelIcon name="external-link" size="sm" />
+                      </a>
+                    ) : (
+                      <span className="text-xs text-muted-foreground shrink-0">
+                        Sem link
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section id="projects" className="py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="space-y-12">
+          <div
+            className="text-center space-y-4 pokemon-panel bg-card/70 p-6 border-4"
+            style={{
+              boxShadow:
+                "4px 4px 0px 0px rgba(0, 0, 0, 0.2), 8px 8px 0px 0px rgba(0, 0, 0, 0.08)",
+            }}
+          >
+            <h2 className="pokemon-section-title pixel-font text-2xl md:text-3xl">
+              ▸ PROJETOS ▸
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
               Alguns dos meus trabalhos e contribuições
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full flex flex-col group border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
+              <div key={index}>
+                <div
+                  className="h-full pokemon-panel bg-card/80 p-5 flex flex-col"
+                  style={{
+                    boxShadow:
+                      "4px 4px 0px 0px rgba(0, 0, 0, 0.2), 8px 8px 0px 0px rgba(0, 0, 0, 0.08)",
+                  }}
+                >
+                  <div className="border-b-4 border-primary pb-2">
+                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         {project.url?.includes("github.com") ? (
-                          <Github className="w-5 h-5 text-muted-foreground" />
+                          <PixelIcon name="github" size="md" />
                         ) : (
-                          <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                          <PixelIcon name="external-link" size="md" />
                         )}
-                        <CardTitle className="text-lg">
+                        <h3 className="pixel-font text-lg text-foreground line-clamp-1">
                           {project.url ? (
                             <a
                               href={project.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="hover:text-primary transition-colors hover:underline"
+                              className="hover:underline"
                             >
                               {project.name}
                             </a>
                           ) : (
                             project.name
                           )}
-                        </CardTitle>
+                        </h3>
                       </div>
                       {project.url && (
                         <a
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-colors"
+                          className="text-muted-foreground flex-shrink-0"
                         >
-                          <ExternalLink className="w-4 h-4" />
+                          <PixelIcon name="external-link" size="md" />
                         </a>
                       )}
                     </div>
-                    <CardDescription className="mt-2 line-clamp-2">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent className="flex-1 space-y-4 pt-0">
-                    {project.highlights && project.highlights.length > 0 && (
-                      <ul className="space-y-1.5 text-sm text-muted-foreground">
-                        {project.highlights.map((highlight, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="text-primary mt-0.5 text-xs">
-                              ▸
-                            </span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    {project.description && (
+                      <p className="mt-2 text-xs text-muted-foreground line-clamp-2">
+                        {project.description}
+                      </p>
                     )}
-                  </CardContent>
+                  </div>
 
-                  {project.tags && project.tags.length > 0 && (
-                    <CardFooter className="pt-0 pb-4">
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag, i) => (
-                          <Badge
-                            key={i}
-                            variant="secondary"
-                            className="text-xs font-normal px-2 py-0.5"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardFooter>
+                  {project.highlights && project.highlights.length > 0 && (
+                    <ul className="space-y-1.5 text-xs text-muted-foreground flex-1">
+                      {project.highlights.slice(0, 3).map((highlight, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-primary mt-0.5 flex-shrink-0">
+                            ▸
+                          </span>
+                          <span className="line-clamp-1">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </Card>
-              </motion.div>
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

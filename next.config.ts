@@ -11,13 +11,19 @@ const getBasePath = () => {
   }
 
   // Fallback para o valor padrão (será atualizado pelo script)
-  return "/viu";
+  return "/pokefolio";
 };
 
 const nextConfig: NextConfig = {
   output: "export", // Gera HTML estático em out/
   images: {
     unoptimized: true, // GitHub Pages não tem Image Optimization API
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+      },
+    ],
   },
   // basePath usado apenas em produção (GitHub Pages)
   // Em desenvolvimento local, acesse http://localhost:3000

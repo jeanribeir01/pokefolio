@@ -1,6 +1,7 @@
 import portfolioData from "../../data.json";
 import { portfolioSchema } from "./schema";
 import type { PortfolioData } from "@/types/portfolio";
+import { DEFAULT_STARTER } from "./pokemonTheme";
 
 /**
  * Processa os dados do portfolio antes da validação
@@ -17,7 +18,12 @@ function processPortfolioData(
       (p) => p.network === "GitHub",
     );
 
-    if (githubProfile?.username) {
+    const githubUsername = githubProfile?.url
+      ?.replace(/\/$/, "")
+      .split("/")
+      .pop();
+
+    if (githubUsername) {
       // Se a imagem estiver com placeholder ou seguir o padrão genérico,
       // substitui pela foto real do GitHub
       const currentImage = processed.basics.image || "";
@@ -27,10 +33,15 @@ function processPortfolioData(
         currentImage === "https://github.com/.png";
 
       if (isPlaceholder) {
-        processed.basics.image = `https://github.com/${githubProfile.username}.png`;
+        processed.basics.image = `https://github.com/${githubUsername}.png`;
       }
     }
   }
+
+  processed.config = {
+    ...processed.config,
+    starterPokemon: processed.config?.starterPokemon ?? DEFAULT_STARTER,
+  };
 
   return processed;
 }
