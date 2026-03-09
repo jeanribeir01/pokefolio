@@ -16,10 +16,7 @@ export const metadata: Metadata = {
   description: data.basics.summary,
   authors: [{ name: data.basics.name }],
   creator: data.basics.name,
-  keywords: [
-    ...data.basics.label.split(" "),
-    ...(data.skills?.flatMap((s) => s.items) || []),
-  ],
+  keywords: [...data.basics.label.split(" "), ...(data.skills || [])],
   openGraph: {
     title: `${data.basics.name} | ${data.basics.label}`,
     description: data.basics.summary,

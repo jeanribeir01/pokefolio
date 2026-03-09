@@ -1,4 +1,5 @@
 import { data } from "@/lib/data";
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
@@ -45,11 +46,14 @@ export default function Home() {
             }}
           >
             {data.basics.heroGifUrl ? (
-              <img
+              <Image
                 src={data.basics.heroGifUrl}
                 alt="GIF de destaque"
+                width={400}
+                height={400}
                 className="aspect-square w-full h-full pokemon-panel border-2 border-foreground/20 object-cover"
                 loading="lazy"
+                unoptimized
               />
             ) : (
               <div className="flex aspect-square w-full h-full items-center justify-center pokemon-panel border-2 border-dashed border-foreground/30 px-2 text-center text-xs text-muted-foreground">
