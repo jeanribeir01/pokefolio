@@ -2,10 +2,10 @@
   "$schema": "./schema.json",
   "basics": {
     "name": "jean",
-    "label": "dev fullstack",
+    "label": "marketing assistant & dev. | hubspot | node.js | typescript | react | open source enthusiast",
     "image": "https://avatars.githubusercontent.com/u/173914591?v=4",
     "email": "jeanribeiro1905@gmail.com",
-    "summary": "Olá! Meu nome é Jean, trabalho com front tem 4 anos. Comecei na área de tecnologia com UX/UI mais focado em UI e com o tempo fui me aproximando do frontend onde desenvolvia páginas sempre focado em estar condizente com a UI proposta. Sou curioso e sempre aceito um desafio, gosto de fazer telas bonitas e me inspiro muito em jogos (vide meu portfolio :p). Gosto bastante de ler, principalmente fantasias e ficção científica. ",
+    "summary": "Olá! Meu nome é Jean, trabalho com front fazem 4 anos. Comecei na área de tecnologia com UX/UI mais focado em UI, e com o tempo fui me aproximando do frontend onde desenvolvia páginas sempre focado em estar condizente com a UI proposta. Sou curioso e sempre aceito um desafio, gosto de fazer telas bonitas e me inspiro muito em jogos (vide meu portfolio :p). Gosto bastante de ler, principalmente fantasias e ficção científica. Tenho facilidade em aprender, gosto de buscar novas ideias e me divirto fazendo o que gosto!",
     "heroGifUrl": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjkzb3FmcjBhdHNtMmlyYXltYjRqYmxlem8yZ25kaGtraXdlbW02NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/I2nZMy0sI0ySA/giphy.gif",
     "location": {
       "city": "Varginha",
@@ -93,30 +93,31 @@
   ],
   "work": [
     {
-      "name": "Tech Solutions Inc",
-      "position": "Desenvolvedor Full Stack",
-      "url": "https://techsolutions.com",
-      "startDate": "2024-06",
+      "name": "Grupo UNIS",
+      "position": "hubspot developer / marketing",
+      "url": "https://portal.unis.edu.br/",
+      "startDate": "2024-07",
       "endDate": "",
-      "summary": "Desenvolvimento de aplicações web escaláveis usando React e Node.js. Colaboração em equipe ágil com sprints quinzenais.",
-      "highlights": [
-        "Implementou sistema de notificações em tempo real",
-        "Reduziu tempo de carregamento em 40% com otimizações",
-        "Mentoria de 2 desenvolvedores júnior"
-      ]
+      "summary": "",
+      "highlights": [""]
     },
     {
-      "name": "Startup XYZ",
-      "position": "Estagiário de Desenvolvimento",
-      "url": "https://startupxyz.com",
-      "startDate": "2023-06",
-      "endDate": "2024-05",
-      "summary": "Desenvolvimento de features frontend e integração com APIs. Participação ativa em code reviews e planejamento técnico.",
-      "highlights": [
-        "Desenvolveu 15+ componentes reutilizáveis",
-        "Implementou sistema de autenticação OAuth2",
-        "Automatizou deploy com GitHub Actions"
-      ]
+      "name": "Pentacústica",
+      "position": "web developer / marketing",
+      "url": "https://pentacustica.com/",
+      "startDate": "2021-11",
+      "endDate": "2023-10",
+      "summary": "",
+      "highlights": [""]
+    },
+    {
+      "name": "Wizzer Imóveis",
+      "position": "frontend developer",
+      "url": "https://wizzer.com.br/",
+      "startDate": "2019-11",
+      "endDate": "2021-10",
+      "summary": "",
+      "highlights": []
     }
   ],
   "config": {

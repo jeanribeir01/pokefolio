@@ -87,7 +87,7 @@ export function Hero({ data, config }: HeroProps) {
                   size="md"
                   className="text-[hsl(var(--primary))]"
                 />
-                <span className="text-xs sm:text-sm">
+                <span className="text-xs sm:text-sm font-medium">
                   {data.location.city}, {data.location.region}
                 </span>
               </div>

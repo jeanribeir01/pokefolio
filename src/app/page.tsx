@@ -30,7 +30,7 @@ export default function Home() {
                     "4px 4px 0px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px 0px rgba(0, 0, 0, 0.12)",
                 }}
               >
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-xl leading-relaxed text-muted-foreground">
                   {data.basics.summary}
                 </p>
               </div>
